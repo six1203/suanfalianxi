@@ -45,25 +45,26 @@ def quick_sort(array: List):
 
 
 
-def quick_sort_02(array: List):
+# 快排优化之随机选择基准值
+def quick_sort02(array: List):
 
     # 基准条件：为空或只包含一个元素的数组是"有序"的
     if len(array) < 2:
         return array
 
-
-    # 基准值优化，采取随机选择，但是会增加运行时间
+    # 基准值
+    # 注意这里选择的基准值并不是很好，因为数组并没有被分成两半，存在另外一个子数组为空的，导致调用栈非常长
+    # 最糟糕情况下栈长为O(n)，最佳情况下栈长为O（logn）
     base = random.choice(array)
 
     # 将数组分为两个子数组，一个数组放不大于基准值的值，另外一个数组放大于基准值的值
-    less = [i for i in array[1:] if i <= base]
+    less = [i for i in array if i < base]
 
-    greater = [i for i in array[1:] if i > base]
+    greater = [i for i in array if i > base]
 
-    return quick_sort_02(less) + [base] + quick_sort_02(greater)
+    equal =  [i for i in array if i == base]
 
-
-
+    return quick_sort(less) + equal + quick_sort(greater)
 
 
 
@@ -71,4 +72,4 @@ def quick_sort_02(array: List):
 
 if __name__ == "__main__":
 
-    print(quick_sort([5, 3, 6, 2, 10]))
+    print(quick_sort02([5,1,1,2,0,0]))
