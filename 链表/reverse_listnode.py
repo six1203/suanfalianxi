@@ -1,4 +1,4 @@
-from base import ListNode
+from base import LinkedList
 
 """
 反转单链表
@@ -15,7 +15,7 @@ https://leetcode.cn/problems/reverse-linked-list/
 """
 
 
-def reverseListNode(head: ListNode) -> ListNode:
+def reverseListNode(head: LinkedList) -> LinkedList:
 
     prev, curr = None, head
 
@@ -29,9 +29,9 @@ def reverseListNode(head: ListNode) -> ListNode:
 
 
 if __name__ == '__main__':
-    a = ListNode(1)
-    b = ListNode(2)
-    c = ListNode(3)
+    a = LinkedList(1)
+    b = LinkedList(2)
+    c = LinkedList(3)
     a.next = b
     b.next = c
 

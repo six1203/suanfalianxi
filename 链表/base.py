@@ -3,6 +3,6 @@ from typing import Optional
 
 
 @dataclass
-class ListNode:
+class LinkedList:
     val: int
-    next: Optional["ListNode"] = None
+    next: Optional["LinkedList"] = None
