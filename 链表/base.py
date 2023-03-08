@@ -4,5 +4,5 @@ from typing import Optional
 
 @dataclass
 class LinkedList:
-    val: int
+    val: int = 0
     next: Optional["LinkedList"] = None
